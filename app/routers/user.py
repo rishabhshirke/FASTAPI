@@ -40,10 +40,10 @@ def create_user_form(request: Request):
 @router.post("/{user_id}/edit")
 def edit_user(user_id: int, updated_data: UserUpdate, db: Session = Depends(get_db)):
     update_user(db, user_id, updated_data)
-    return RedirectResponse(url="/users", status_code=303)
+    return RedirectResponse(url="/test", status_code=303)
 
 
 @router.post("/{user_id}/delete")
 def delete_user_endpoint(user_id: int, db: Session = Depends(get_db)):
     delete_user(db, user_id)
-    return RedirectResponse(url="/users", status_code=303)
+    return RedirectResponse(url="/test", status_code=303)
